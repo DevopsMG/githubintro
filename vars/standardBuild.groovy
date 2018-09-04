@@ -10,7 +10,7 @@ def call(body) {
     
     node {
         stage('checkout'){
-               git 'https://github.com/DevopsMG/SpringProjectforCICD'
+            git '${config.url}'
         }
         stage('post'){
             sh 'mvn clean package'
