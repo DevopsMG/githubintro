@@ -7,10 +7,13 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
+    
     node {
         stage('checkout'){
-               git 'https://github.com/DevopsMG/githubintro'
+               git 'https://github.com/DevopsMG/SpringProjectforCICD'
         }
-        stage 'post'
+        stage('post'){
+            sh 'mvn clean package'
+        }
     }
 }
