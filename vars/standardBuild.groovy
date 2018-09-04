@@ -10,7 +10,7 @@ def call(body) {
     
     node {
         stage('checkout'){
-            git '${config.url}'
+            git "${config.url}"
         }
         stage('post'){
             sh 'mvn clean package'
