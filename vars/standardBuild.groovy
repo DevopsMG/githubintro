@@ -7,10 +7,10 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
-    stage 'checkout'
     node {
-        checkout scm
-        stage 'main'
+        stage('checkout'){
+               git 'https://github.com/DevopsMG/githubintro'
+        }
         stage 'post'
     }
 }
